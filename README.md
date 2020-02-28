@@ -12,7 +12,7 @@ Part A
 
 In the [babynames.py](./babynames.py) file, implement the `extract_names(filename)` function which takes the filename of a single `babyXXXX.html` file and returns the data from the file as a single list -- the year string at the start of the list followed by the name-rank strings in alphabetical order. Make sure the returned list is a pure python list, not a 'stringified' version of the list.
 ```
-['2006', 'Aaliyah 91', 'Abagail 895', 'Aaron 57', ...] 
+['2006', 'Aaliyah 91', 'Aaron 57', 'Abagail 895', Abbey 695, ...] 
 ```
 Modify `main(args)` so it calls your `extract_names(filename)` function and prints what it returns (main already has the code for the command line argument parsing). If you get stuck working out the regular expressions for the year and each name, solution regular expression patterns are shown at the end of this readme. Note that for parsing webpages in general, regular expressions don't do a good job, but these webpages have a simple and consistent format.
 
