@@ -64,8 +64,8 @@ def create_parser():
 def main(args):
     # Create a command line parser object with parsing rules
     parser = create_parser()
-    # Run the parser to collect command line arguments into
-    # a NAMESPACE called 'ns'
+    # Run the parser to collect command line arguments into a
+    # NAMESPACE called 'ns'
     ns = parser.parse_args(args)
 
     if not ns:
@@ -79,7 +79,7 @@ def main(args):
 
     # For each filename, call `extract_names()` with that single file.
     # Format the resulting list as a vertical list (separated by newline \n).
-    # Use the --summaryfile flag to decide whether to print the list
+    # Use the create_summary flag to decide whether to print the list
     # or to write the list to a summary file (e.g. `baby1990.html.summary`).
 
     # +++your code here+++
