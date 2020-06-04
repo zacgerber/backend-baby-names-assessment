@@ -31,7 +31,7 @@ Printing the data you have at the end of one milestone helps you think about how
 
 Before, we have made functions that just print their result. It's more reusable to have the function *return* the extracted data, so then the caller has the choice to print it or do something else with it (You can still print directly from inside your functions for your little experiments during development). This illustrates the principle of _Separation of Concerns_.  Have one function that delivers the data, and a different one to print or write the the data to a file. This builds _modularity_ into your program so that it is easier to maintain.
 
-Have `main()` call `extract_names()` for each command line argument and print the results vertically. To make the list into a reasonable looking summary text, here's a clever use of `join()`: `text = '\n'.join(mylist) + '\n'`
+Have `main()` call `extract_names()` for each command line argument and print the results vertically. To make the list into a reasonable looking summary text, here's a clever use of `join()`: `text = '\n'.join(mylist)`
 
 The summary text should look like this for each file:
 ```
