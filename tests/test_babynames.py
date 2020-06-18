@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 """
     A Test fixture for babynames.
-    Checks the create_parser, extract_names, and main functions for
-    correct behavior.
+    Checks the create_parser(), extract_names(), and main()
+    functions for correct behavior.
+
+    NOTE: Students should not need to modify this file.
 """
 import sys
 import os
@@ -16,8 +18,8 @@ except ImportError:
     # python3
     from io import StringIO
 
-# uncomment one of the lines below
-# import soln.babynames as babynames
+# Kenzie developers only:
+# To test the solution code, change line below to 'import soln.babynames as babynames'
 import babynames
 
 __author__ = "madarp"
@@ -90,7 +92,7 @@ class TestBabynames(unittest.TestCase):
         self.assertTrue(ns.summaryfile)
 
     def test_extract_names(self):
-        """Extraction, alphabetizing, de-duping, ranking of names from all html files"""
+        """Checking extraction, alphabetizing, de-duping, ranking of names from all html files"""
         # Is the function callable?
         self.assertTrue(
             callable(babynames.extract_names),
@@ -109,3 +111,7 @@ class TestBabynames(unittest.TestCase):
             actual_list = list(filter(None, actual_list))
             # This will perform element-by-element comparison.
             self.assertListEqual(actual_list, expected_list)
+
+
+if __name__ == '__main__':
+    unittest.main()
