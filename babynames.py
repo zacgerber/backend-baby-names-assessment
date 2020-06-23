@@ -44,8 +44,23 @@ def extract_names(filename):
     ['2006', 'Aaliyah 91', 'Aaron 57', 'Abagail 895', ...]
     """
     names = []
-    # +++your code here+++
-    return names
+    with open(filename, 'r') as f:
+        f_contents = f.read()
+        year = re.search(r'Popularity\sin\s(\d\d\d\d)', f_contents)
+        baby_year = year.group(1)
+        names.append(baby_year)
+
+        baby_name = re.findall(r'<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>', f_contents)
+        baby_ndict = {}
+        for name in baby_name:
+            if not name[1] in baby_ndict:
+                baby_ndict[name[1]] = name[0]
+            if not name[2] in baby_ndict:
+                baby_ndict[name[2]] = name[0]
+        for key in sorted(baby_ndict):
+            names.append(key + ' ' + baby_ndict[key])
+
+        return names
 
 
 def create_parser():
@@ -74,16 +89,22 @@ def main(args):
 
     file_list = ns.files
 
-    # option flag
+    # # option flag
     create_summary = ns.summaryfile
 
-    # For each filename, call `extract_names()` with that single file.
-    # Format the resulting list as a vertical list (separated by newline \n).
-    # Use the create_summary flag to decide whether to print the list
-    # or to write the list to a summary file (e.g. `baby1990.html.summary`).
+    # # For each filename, call `extract_names()` with that single file.
+    # # Format the resulting list as a vertical list (separated by newline \n).
+    # # Use the create_summary flag to decide whether to print the list
+    # # or to write the list to a summary file (e.g. `baby1990.html.summary`).
 
-    # +++your code here+++
-
+    for filename in file_list:
+        baby_names_call = extract_names(filename)
+        results = '\n'.join(baby_names_call)
+        if create_summary:
+            with open(filename + '.summary', 'w') as output:
+                output.write(results + '\n')
+        else:
+            print(results)
 
 if __name__ == '__main__':
     main(sys.argv[1:])
